@@ -5,7 +5,7 @@ import { useState } from "react";
 type Ranking = {
   id: number;
   team_id: number;
-  team_name: string;
+  team_name: string; // ✅ always provided by backend now
   wins: number;
   points_for: number;
   h2h_wins: number;
@@ -33,8 +33,9 @@ export default function PowerRankingTable({ rankings }: Props) {
   });
 
   const handleSort = (key: keyof Ranking) => {
-    if (sortBy === key) setSortAsc(!sortAsc);
-    else {
+    if (sortBy === key) {
+      setSortAsc(!sortAsc);
+    } else {
       setSortBy(key);
       setSortAsc(false); // descending by default when changing column
     }
@@ -117,7 +118,9 @@ export default function PowerRankingTable({ rankings }: Props) {
               <td className="px-4 py-2 text-center">{row.wins}</td>
               <td className="px-4 py-2 text-center">{row.category_wins}</td>
               <td className="px-4 py-2 text-center">{row.points_for}</td>
-              <td className="px-4 py-2 text-center">{row.category_points_for}</td>
+              <td className="px-4 py-2 text-center">
+                {row.category_points_for}
+              </td>
               <td className="px-4 py-2 text-center">{row.h2h_wins}</td>
               <td className="px-4 py-2 text-center">{row.category_h2h}</td>
               <td className="px-4 py-2 text-center">{row.total}</td>
