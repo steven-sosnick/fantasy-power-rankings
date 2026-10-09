@@ -4,6 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Fantasy Power Rankings",
   description: "Custom Yahoo Fantasy Football standings",
+  icons: {
+    icon: "/favicon.png", // default
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
